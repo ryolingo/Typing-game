@@ -1,7 +1,16 @@
 .App {
   text-align: center;
+  margin-top: 50px;
 }
 
+input {
+  padding: 10px;
+  font-size: 50px;
+}
+h2,
+h3 {
+  font-family: Arial, sans-serif;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -18,10 +27,9 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: left; /* Added this line to align the header to the left */
 }
 
 .App-link {
@@ -35,4 +43,81 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color o.3s ease;
+}
+
+.start-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+}
+
+.home-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.home-button:hover {
+  background-color: #0b79d0;
+}
+
+.restart-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.restart-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.restart-button:hover {
+  background-color: #4caf50;
+}
+
+.level-select-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.level-select-button:hover {
+  background-color: #0b79d0;
+}
+.ScoreScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+  color: #333;
+  text-align: center;
+}
+
+.ScoreScreen h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ScoreScreen p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
 }
