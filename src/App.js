@@ -159,55 +159,57 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      <header class="header">
         <h1>Vocaburaly Typing Game</h1>
       </header>
-      {showHome ? (
-        <HomeScreen onTransition={handleTransitionToLevelSelection} />
-      ) : showLevelSelection ? (
-        <LevelSelection onLevelSelect={handleLevelSelect} />
-      ) : showCountdownScreen ? ( // 修正: カウントダウンページの表示
-        <CountdownScreen
-          countdown={countdown}
-          onCountdownEnd={() => setShowCountdownScreen(false)}
-        />
-      ) : showScoreScreen ? (
-        <ScoreScreen
-          score={score}
-          onRestart={handleRestart}
-          onLevelSelect={handleTransitionToLevelSelection}
-        />
-      ) : (
-        <>
-          <h2>レベル: {level}</h2>
-          {!gameActive && countdown === null ? (
-            <>
-              {countdown !== null && <h3>ゲーム開始まで: {countdown}</h3>}
-              {showStartAndLevelButtons && (
-                <>
-                  <button className="start-button" onClick={startCountdown}>
-                    スタート
-                  </button>
-                  <button
-                    className="level-select-button"
-                    onClick={handleTransitionToLevelSelection}
-                  >
-                    レベル選択に戻る
-                  </button>
-                </>
-              )}
-            </>
-          ) : (
-            <>
-              <WordDisplay word={word} />
-              <Input value={input} onChange={handleChange} ref={inputRef} />
-              <Score score={score} />
-              <h3>残り時間: {timeLeft}秒</h3>
-            </>
-          )}
-          <h3>最高得点: {highScore}</h3>
-        </>
-      )}
+      <div class="container">
+        {showHome ? (
+          <HomeScreen onTransition={handleTransitionToLevelSelection} />
+        ) : showLevelSelection ? (
+          <LevelSelection onLevelSelect={handleLevelSelect} />
+        ) : showCountdownScreen ? ( // 修正: カウントダウンページの表示
+          <CountdownScreen
+            countdown={countdown}
+            onCountdownEnd={() => setShowCountdownScreen(false)}
+          />
+        ) : showScoreScreen ? (
+          <ScoreScreen
+            score={score}
+            onRestart={handleRestart}
+            onLevelSelect={handleTransitionToLevelSelection}
+          />
+        ) : (
+          <>
+            <h2>レベル: {level}</h2>
+            {!gameActive && countdown === null ? (
+              <>
+                {countdown !== null && <h3>ゲーム開始まで: {countdown}</h3>}
+                {showStartAndLevelButtons && (
+                  <>
+                    <button className="start-button" onClick={startCountdown}>
+                      スタート
+                    </button>
+                    <button
+                      className="level-select-button"
+                      onClick={handleTransitionToLevelSelection}
+                    >
+                      レベル選択に戻る
+                    </button>
+                  </>
+                )}
+              </>
+            ) : (
+              <>
+                <WordDisplay word={word} />
+                <Input value={input} onChange={handleChange} ref={inputRef} />
+                <Score score={score} />
+                <h3>残り時間: {timeLeft}秒</h3>
+              </>
+            )}
+            <h3>最高得点: {highScore}</h3>
+          </>
+        )}
+      </div>
     </div>
   );
 }
